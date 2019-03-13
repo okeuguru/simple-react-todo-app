@@ -17,8 +17,18 @@ class App extends Component {
         this.handleClick = this.handleClick.bind(this)
     }
 
-    handleClick() {
-        console.log("clicked")
+    handleClick(id) {
+        this.setState((prevState, id) => {
+            const updatedTodos = prevState.todos.map(todo => {
+                if (todo.id === id) {
+                    todo.completed = !todo.completed
+                }
+                return todo
+            })
+            return {
+                todos: updatedTodos
+            }
+        })
     }
 
     render() {
