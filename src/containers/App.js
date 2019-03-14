@@ -6,19 +6,16 @@ import todosData from '../todosData.js'
 import './style.css'
 
 class App extends Component {
-
     constructor() {
         super()
-
         this.state = {
             todos: todosData
         }
-
-        this.handleClick = this.handleClick.bind(this)
+        this.handleChange = this.handleChange.bind(this)
     }
 
-    handleClick(id) {
-        this.setState((prevState, id) => {
+    handleChange(id) {
+        this.setState(prevState => {
             const updatedTodos = prevState.todos.map(todo => {
                 if (todo.id === id) {
                     todo.completed = !todo.completed
@@ -36,8 +33,9 @@ class App extends Component {
             <TodoItem
                 key={item.id}
                 item={item}
-                checkClicked={this.handleClick}
+                handleChange={this.handleChange}
             />)
+
 
         return (
             <div>
