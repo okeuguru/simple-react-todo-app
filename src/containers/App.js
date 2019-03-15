@@ -13,7 +13,6 @@ class App extends Component {
         }
         this.handleChange = this.handleChange.bind(this)
     }
-
     handleChange(id) {
         this.setState(prevState => {
             const updatedTodos = prevState.todos.map(todo => {
